@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nginx:
+    image: tofran/nginx-with-substitutions-filter
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/config/nginx/conf.d:/etc/nginx/conf.d
+    restart: always
+  midjourney-proxy:
+    restart: always
+    image: novicezk/midjourney-proxy:2.5.5
+    env_file:
+      - .env
