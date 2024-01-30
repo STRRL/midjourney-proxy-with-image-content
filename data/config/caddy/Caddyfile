@@ -1,0 +1,3 @@
+mj.imzl.com {
+    reverse_proxy nginx:80
+}

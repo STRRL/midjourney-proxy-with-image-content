@@ -2,8 +2,6 @@ version: '3'
 services:
   nginx:
     image: tofran/nginx-with-substitutions-filter
-    ports:
-      - 8080:80
     volumes:
       - ./data/config/nginx/conf.d:/etc/nginx/conf.d
     restart: always
@@ -17,3 +15,10 @@ services:
     image: ghcr.io/strrl/lobe-midjourney-webui:2024.01.30
     environment:
       - MIDJOURNEY_PROXY_URL=http://midjourney-proxy:8080
+  caddy:
+    image: caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/config/caddy/Caddyfile:/etc/caddy/Caddyfile
