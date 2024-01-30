@@ -12,3 +12,6 @@ services:
     image: novicezk/midjourney-proxy:2.5.5
     env_file:
       - .env
+  lobe-midjourney-webui:
+    restart: always
+    image: ghcr.io/strrl/lobe-midjourney-webui:2024.01.30
